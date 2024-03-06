@@ -74,13 +74,13 @@ def jogos_por_dia_callback(update: Update, context: CallbackContext) -> None:
 
     if 0 <= dia_escolhido_index < len(jogos):
         jogos_para_dia_escolhido = jogos[dia_escolhido_index]
-        msg_format = formatar_jogos_para_dia(jogos_para_dia_escolhido)
+        msg = formatar_jogos_para_dia(jogos_para_dia_escolhido)
         context.bot.send_message(
-            chat_id=query.message.chat_id, text=msg_format, parse_mode="HTML"
+            chat_id=query.message.chat_id, text=msg, parse_mode="HTML"
         )
     else:
         context.bot.send_message(
-            chat_id=query.message.chat_id, text="Dia de jogo inválido."
+            chat_id=query.message.chat_id, text="Dia de jogo inválido"
         )
 
 
