@@ -44,10 +44,12 @@ def jogos_hoje(update: Update, context: CallbackContext) -> None:
     dias_de_jogo = obter_dias_de_jogo()
 
     if not dias_de_jogo:
-        context.bot.send_message(chat_id=update.effective_chat.id, text="Não há jogos hoje.")
+        context.bot.send_message(chat_id=update.effective_chat.id,
+                                 text="Não há jogos hoje.")
         return
 
-    keyboard = [[InlineKeyboardButton(dia, callback_data=str(index))] for index, dia in enumerate(dias_de_jogo)]
+    keyboard = [[InlineKeyboardButton(dia, 
+                callback_data=str(index))] for index, dia in enumerate(dias_de_jogo)]
     reply_markup = InlineKeyboardMarkup(keyboard)
 
     context.bot.send_message(
