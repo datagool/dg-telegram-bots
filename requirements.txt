@@ -2,4 +2,3 @@ requests
 bandit
 black
 autopep8
-pycodestyle
