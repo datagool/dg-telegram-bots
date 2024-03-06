@@ -30,6 +30,6 @@ jobs:
         with:
           host: ${{ secrets.DG_HOST }}
           username: ${{ secrets.DG_USERNAME }}
-          key: ${{ secrets.SSH_Pk }}
+          key: ${{ secrets.SSH_PK }}
           script: |
             scp -i ${{ secrets.SSH_PK }} -r ./* ${{ secrets.DG_USERNAME }}@${{ secrets.DG_HOST }}:/home/
