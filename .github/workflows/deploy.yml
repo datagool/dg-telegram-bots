@@ -19,6 +19,9 @@ jobs:
       - name: Run security checks
         run: bandit -r .
 
+      - name: Executar Flake8
+        run: flake8 --exclude=.git,__pycache__,venv .
+
       - name: Check PEP8 compliance
         run: |
           if ! pycodestyle .; then
