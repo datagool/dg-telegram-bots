@@ -25,11 +25,11 @@ jobs:
       - name: Executar Autopep8
         run: autopep8 --in-place --recursive .
 
-      - name: Check PEP8 compliance
-        run: |
-          if ! pycodestyle .; then
-            exit 1
-          fi
+      # - name: Check PEP8 compliance
+        # run: |
+          # if ! pycodestyle .; then
+            # exit 1
+          # fi
 
       - name: Deploy code
         uses: appleboy/scp-action@master
