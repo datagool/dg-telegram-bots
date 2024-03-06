@@ -37,7 +37,7 @@ jobs:
           host: ${{ secrets.DG_HOST }}
           username: ${{ secrets.DG_USERNAME }}
           key: ${{ secrets.SSH_PK }}
-          source: "./script.py"
+          source: "./*.py"
           target: ${{ secrets.DG_TARGET }}
           # script: |
             # scp -i ${{ secrets.SSH_PK }} -r ./* ${{ secrets.DG_USERNAME }}@${{ secrets.DG_HOST }}:/home/
