@@ -11,12 +11,12 @@ env = environs.Env()
 env.read_env()
 
 TOKEN = env('sofutebol')
-url = ''
+url = env('URL')
 
 updater = Updater(token=TOKEN, use_context=True)
 dispatcher = updater.dispatcher
 
-response = requests.get(url)
+response = requests.get(url, timeout=5)
 
 if response.status_code == 200:
     jogos = response.json()
