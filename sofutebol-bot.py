@@ -89,7 +89,7 @@ def help_command(update, context):
         "/jogos - Mostra os jogos de hoje\n"
         "/help - Lista de comandos disponíveis",
     ]
-    help_message = "Comandos disponíveis:\n" + "\n".join(available_commands)
+    help_message = "Comandos:\n" + "\n".join(available_commands)
     context.bot.send_message(
         chat_id=update.effective_chat.id, text=help_message)
 
