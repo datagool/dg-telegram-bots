@@ -37,8 +37,7 @@ def formatar_jogos_para_dia(jogos_para_dia):
         mensagem += f"🏆 {jogo['campeonato']}\n"
         mensagem += f"🕒 {jogo['horario']}\n"
         mensagem += f"📺 {', '.join(jogo['ondePassa'])}\n\n\n"
-    mensagem += f"Acesse: <a href='https://sofutebol.live'>"
-                f"sofutebol.live</a>\n\n"
+    mensagem += f"Acesse: <a href='https://sofutebol.live'>sofutebol.live</a>\n\n"
     mensagem += f"Comando usado: /jogos"
     return mensagem.strip()
 
