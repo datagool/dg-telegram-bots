@@ -37,8 +37,8 @@ def formatar_jogos_para_dia(jogos_para_dia):
         mensagem += f"🏆 {jogo['campeonato']}\n"
         mensagem += f"🕒 {jogo['horario']}\n"
         mensagem += f"📺 {', '.join(jogo['ondePassa'])}\n\n\n"
-    mensagem += f"Acesse: <a href='https://sofutebol.live'>sofutebol.live</a>\n\n"
-    mensagem += f"Comando usado: /jogos"
+    mensagem += f"Acesse: <a href='https://sofutebol.live'>sofutebol.live</a>"
+    mensagem += f"\n\nComando usado: /jogos"
     return mensagem.strip()
 
 
@@ -76,8 +76,7 @@ def jogos_por_dia_callback(update: Update, context: CallbackContext) -> None:
         jogos_para_dia_escolhido = jogos[dia_escolhido_index]
         mensagem_formatada = formatar_jogos_para_dia(jogos_para_dia_escolhido)
         context.bot.send_message(
-            chat_id=query.message.chat_id, 
-            text=mensagem_formatada, 
+            chat_id=query.message.chat_id, text=mensagem_formatada,
             parse_mode="HTML"
         )
     else:
@@ -88,11 +87,12 @@ def jogos_por_dia_callback(update: Update, context: CallbackContext) -> None:
 
 def help_command(update, context):
     available_commands = [
-        "/jogos - Mostra os jogos de hoje\n" "/help - Lista de comandos disponíveis",
+        "/jogos - Mostra os jogos de hoje\n",
+        "/help - Lista de comandos disponíveis",
     ]
-    help_message = "Lista de comandos disponíveis:\n" + "\n".join(available_commands)
-    context.bot.send_message(chat_id=update.effective_chat.id, 
-        text=help_message)
+    help_message = "Comandos disponíveis:\n" + "\n".join(available_commands)
+    context.bot.send_message(chat_id=update.effective_chat.id,
+                             text=help_message)
 
 
 # Adicione o manipulador de comandos para o comando /jogos
@@ -102,8 +102,8 @@ dispatcher.add_handler(CommandHandler("jogos", jogos_hoje))
 dispatcher.add_handler(CallbackQueryHandler(jogos_por_dia_callback))
 
 dispatcher.add_handler(CommandHandler("help", help_command))
-dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, 
-    help_command))
+dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command,
+                                      help_command))
 
 # Inicie o bot
 updater.start_polling()
