@@ -26,10 +26,12 @@ jobs:
           fi
 
       - name: Deploy code
-        uses: appleboy/ssh-action@master
+        uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.DG_HOST }}
           username: ${{ secrets.DG_USERNAME }}
           key: ${{ secrets.SSH_PK }}
-          script: |
-            scp -i ${{ secrets.SSH_PK }} -r ./* ${{ secrets.DG_USERNAME }}@${{ secrets.DG_HOST }}:/home/
+          source: "./script.py"
+          target: "/home"
+          # script: |
+            # scp -i ${{ secrets.SSH_PK }} -r ./* ${{ secrets.DG_USERNAME }}@${{ secrets.DG_HOST }}:/home/
